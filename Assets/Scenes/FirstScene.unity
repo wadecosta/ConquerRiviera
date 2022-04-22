@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658792, g: 0.49642283, b: 0.5748252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -391,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445976969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 7, z: -20}
+  m_LocalPosition: {x: 40, y: 10, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,7 +456,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6aace0da6ecc68d9a3a8f511e334d6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2a95b7353ff2255f9570572e858bc42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -475,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486818014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41, y: 4.75, z: 0}
+  m_LocalPosition: {x: 40, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -513,11 +513,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filename: Levels/New_Test
   Rock: {fileID: 6746664849672513775, guid: f0108acee1dd06c83bf53c41cf188097, type: 3}
-  Brick: {fileID: 6746664849672513775, guid: 3d91283a5ad914b04b62bc85f59c00d7, type: 3}
+  Ladder: {fileID: 6746664849672513775, guid: 3d91283a5ad914b04b62bc85f59c00d7, type: 3}
   Stone: {fileID: 6746664849672513775, guid: f6caf88aea173f87dbf5cd66abadf239, type: 3}
   Water: {fileID: 6746664849672513775, guid: 99d68d8164ead6fffa9d46bb7b65686d, type: 3}
-  Coin: {fileID: 6746664849672513775, guid: 2af2c0c0d4b29a96fbe8d75cede14827, type: 3}
-  Goal: {fileID: 6746664849672513775, guid: 1a791dcb7d4c98eccb3d9cb2bcb7794f, type: 3}
+  Chest: {fileID: 6746664849672513775, guid: 1a791dcb7d4c98eccb3d9cb2bcb7794f, type: 3}
   levelRoot: {fileID: 6746664849672513771, guid: f6caf88aea173f87dbf5cd66abadf239, type: 3}
 --- !u!4 &1595514344
 Transform:

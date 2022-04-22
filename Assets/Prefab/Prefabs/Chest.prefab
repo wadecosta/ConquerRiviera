@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6746664849672513773}
   - component: {fileID: 6746664849672513772}
   m_Layer: 0
-  m_Name: Brick
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5906291d4abc3f142a1aec0c7d70377b, type: 2}
+  - {fileID: 2100000, guid: 34ab4c590b3d98bb0816dd7cd02b451e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

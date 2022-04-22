@@ -15,15 +15,13 @@ public class LevelParser : MonoBehaviour
 
     public GameObject Rock;
 
-    public GameObject Brick;
+    public GameObject Ladder;
 
     public GameObject Stone;
 
     public GameObject Water;
 
-    public GameObject Coin;
-
-    public GameObject Goal;
+    public GameObject Chest;
 
     public Transform levelRoot;
 
@@ -113,21 +111,18 @@ public class LevelParser : MonoBehaviour
                 // Instantiate a new GameObject that matches the type specified by letter
 		var rockObject = Instantiate(Rock);
 		var stoneObject = Instantiate(Stone);
-		var brickObject = Instantiate(Brick);
+		var ladderObject = Instantiate(Ladder);
 		var waterObject = Instantiate(Water);
-		var coinObject = Instantiate(Coin);
-		var goalObject = Instantiate(Goal);
+		var chestObject = Instantiate(Chest);
 
 
 		if(letter == 'x')
 		{
 			rockObject.transform.position = new Vector3(column, row, 0f);
 		}
-		else if(letter == 'b')
+		else if(letter == 'l')
 		{
-			brickObject.transform.position = new Vector3(column, row, 0f);
-
-
+			ladderObject.transform.position = new Vector3(column, row, 0f);
 		}
 		else if(letter == 's')
 		{
@@ -138,13 +133,9 @@ public class LevelParser : MonoBehaviour
 		{
 			waterObject.transform.position = new Vector3(column, row, 0f);
 		}
-		else if(letter == '*')
-		{
-			coinObject.transform.position = new Vector3(column, row, 0f);
-		}
 		else if(letter == 'g')
 		{
-			goalObject.transform.position = new Vector3(column, row, 0f);
+			chestObject.transform.position = new Vector3(column, row, 0f);
 		}
 
 
