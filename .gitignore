@@ -16,6 +16,11 @@
 /Assets/Scripts.meta
 /UserSettings/EditorUserSettings.asset
 /UserSettings/Layouts/default-2021.dwlt
+Assets/Materials.meta
+Assets/Prefabs.meta
+Assets/Scripts.meta
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/default-2021.dwlt
 
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
