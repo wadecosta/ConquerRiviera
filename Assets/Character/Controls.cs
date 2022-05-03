@@ -11,6 +11,12 @@ public class Controls : MonoBehaviour
     public float runBonus = 5f;
 
     public float maxRunSpeed = 6f;
+    
+    // array for weapons
+    private int[] weapons;
+    private int weaponCount = 3;
+    private int currentWeapon;
+    private bool swapWeapon = false;
 
     public bool feetInContactWithGround;
     
@@ -99,11 +105,56 @@ public class Controls : MonoBehaviour
         }
         
         
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        {
+            animComp.SetBool("SwapTrigger", true);
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (currentWeapon == 0)
+                {
+                    currentWeapon = weaponCount - 1;
+                }
+
+                else
+                {
+                    currentWeapon--;
+                }
+            }
+
+            else
+            {
+                if (currentWeapon == (weaponCount - 1))
+                {
+                    currentWeapon = 0;
+                }
+
+                else
+                {
+                    currentWeapon++;
+                }
+            }
+            Debug.Log("Selected Weapon is: " + currentWeapon);
+        }
+
+        else
+        {
+            animComp.SetBool("SwapTrigger", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animComp.SetBool("Attacking", true);
-            
+
+            for (int i = 0; i < weaponCount; i++)
+            {
+                if (currentWeapon == i)
+                {
+                    animComp.SetInteger("SelectedWeapon", i);
+                }
+            }
         }
+
         else
         {
             animComp.SetBool("Attacking", false);
