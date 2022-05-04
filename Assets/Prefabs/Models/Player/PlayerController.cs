@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private float maxRunSpeed = 6f;
     public float jumpForce = 12f;
     public float runForce = 20f;
+    
+    
 
     // Start is called before the first frame update
     void Start()

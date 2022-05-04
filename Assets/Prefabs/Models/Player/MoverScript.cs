@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoverScript : MonoBehaviour
@@ -11,18 +12,32 @@ public class MoverScript : MonoBehaviour
     private float fallSpeed;
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
+    public float moveDirection;
     
     // array for weapons
     private int[] weapons;
-    private int weaponCount = 3;
-    private int currentWeapon;
+    private int weaponCount = 4;
+    public int currentWeaponCounter;
     private bool swapWeapon = false;
+    private GameObject currentWeapon;
+    
+    // weapon prefabs
+    public GameObject[] weaponWheel;
+    public Transform weaponSpawnPoint;
+    public Transform batSpawnPoint;
 
     public bool feetInContactWithGround;
     private Rigidbody body;
     private Collider collider;
 
     private Animator animComp;
+    
+    // shooting weapons
+    public GameObject arrow;
+    public Transform arrowSpawn;
+    
+    // weapon script call
+    public WeaponDeleteScript weaponCall;
 
 
 
@@ -32,14 +47,19 @@ public class MoverScript : MonoBehaviour
         body = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
         animComp = GetComponent<Animator>();
-        currentWeapon = 0;
+        currentWeaponCounter = 0;
         weapons = new int[weaponCount];
-        
+
         // add values to weapons array
         for (int i = 0; i < 3; i++)
         {
             weapons[i] = (i + 1);
         }
+
+        
+        GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
+        weaponInstance.transform.position = weaponSpawnPoint.position;
+       
     }
 
     // Update is called once per frame
@@ -90,7 +110,7 @@ public class MoverScript : MonoBehaviour
             body.velocity = new Vector3(body.velocity.x, newY, body.velocity.z);
         }
 
-        if (axis < 0.1f)
+        if (axis < 0.15f)
         {
             float newX = body.velocity.x * (1f - Time.deltaTime * 3f);
             body.velocity = new Vector3(newX, body.velocity.y, body.velocity.z);
@@ -130,36 +150,57 @@ public class MoverScript : MonoBehaviour
         }
         
         // swapping weapons
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
         {
+            // delete the current weapon
+            weaponCall = GameObject.FindWithTag("1").GetComponent<WeaponDeleteScript>();
+            weaponCall.deleteThis();
+
             animComp.SetBool("SwapTrigger", true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentWeaponCounter == (weaponCount - 1))
+                {
+                    currentWeaponCounter = 0;
+                }
+
+                else
+                {
+                    currentWeaponCounter++;
+                }
+            }
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (currentWeapon == 0)
+                if (currentWeaponCounter == (0))
                 {
-                    currentWeapon = weaponCount - 1;
+                    currentWeaponCounter = (weaponCount - 1);
                 }
 
                 else
                 {
-                    currentWeapon--;
+                    currentWeaponCounter--;
                 }
             }
 
+            // if the weapon is the bat
+            if (currentWeaponCounter == 1)
+            {
+                GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
+                weaponInstance.transform.position = batSpawnPoint.position;
+                weaponInstance.transform.parent = weaponSpawnPoint;
+            }
             else
             {
-                if (currentWeapon == (weaponCount - 1))
-                {
-                    currentWeapon = 0;
-                }
-
-                else
-                {
-                    currentWeapon++;
-                }
+                GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
+                weaponInstance.transform.position = weaponSpawnPoint.position;
+                weaponInstance.transform.parent = weaponSpawnPoint;
             }
-            Debug.Log("Selected Weapon is: " + currentWeapon);
+
+
+
+            Debug.Log("Selected Weapon is: " + currentWeaponCounter);
         }
 
         else
@@ -167,16 +208,26 @@ public class MoverScript : MonoBehaviour
             animComp.SetBool("SwapTrigger", false);
         }
 
+        // attacking
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animComp.SetBool("Attacking", true);
 
             for (int i = 0; i < weaponCount; i++)
             {
-                if (currentWeapon == i)
+                if (currentWeaponCounter == i)
                 {
                     animComp.SetInteger("SelectedWeapon", i);
                 }
+            }
+            
+            // check for shooting bow
+            if (currentWeaponCounter == 3)
+            {
+                moveDirection = body.velocity.x;
+                Transform arrowlocation = arrowSpawn;
+                GameObject arrow = Instantiate(this.arrow);
+                arrow.transform.position = arrowlocation.position;
             }
         }
 
