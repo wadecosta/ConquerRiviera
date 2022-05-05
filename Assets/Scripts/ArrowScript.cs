@@ -26,9 +26,17 @@ public class ArrowScript : MonoBehaviour
     
     private void Fire()
     {
-        
+        if (MoverScriptCall.playerRotation() < 0)
+        {
+            myRigidBody.velocity = Vector3.left * speed;
+        }
 
-        myRigidBody.velocity = Vector3.right * speed;
+        else
+        {
+            myRigidBody.velocity = Vector3.right * speed;
+        }
+
+        
         
     }
 

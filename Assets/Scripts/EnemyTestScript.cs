@@ -5,74 +5,41 @@ using UnityEngine;
 
 public class EnemyTestScript : MonoBehaviour
 {
-    public GameObject fistPrefab;
-    public GameObject batPrefab;
-    public GameObject spearPrefab;
-    public GameObject bowPrefab;
     public GameObject player;
-    
+    private int damage;
     public MoverScript MoverScriptCall;
+    private bool playerRay;
+    public Vector3 playerPostion;
     
-    private Rigidbody body;
-
-    public int damage;
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody>();
+        
         MoverScriptCall = GameObject.Find("player").GetComponent<MoverScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            float dist = Vector3.Distance(this.transform.position, player.transform.position);
+            //playerPostion = new Vector3(MoverScriptCall.playerPosition().x, MoverScriptCall.playerPosition().y, MoverScriptCall.playerPosition().z);
+            playerPostion = new Vector3(MoverScriptCall.playerPosition().x - transform.position.x,
+                MoverScriptCall.playerPosition().y - transform.position.y,
+                MoverScriptCall.playerPosition().z - transform.position.z);
+            playerRay = Physics.Raycast(transform.position, playerPostion, 10);
 
-            
-            Debug.Log(MoverScriptCall.currentWeaponCounter);
-
-            float weaponForce = 0f;
-
-            if (MoverScriptCall.currentWeaponCounter == 0)
+            if (playerRay == true)
             {
-                weaponForce = 3f;
-                damage = 1;
+                damage = MoverScriptCall.DamageAmount();
+                Debug.Log("Oh Dear, I've been struck for " + damage + " damage!");
             }
-
-            if (MoverScriptCall.currentWeaponCounter == 1)
-            {
-                weaponForce = 18f;
-                damage = 3;
-            }
-
-            if (MoverScriptCall.currentWeaponCounter == 2)
-            {
-                weaponForce = 10f;
-                damage = 3;
-            }
-
-            if (MoverScriptCall.currentWeaponCounter == 3)
-            {
-                weaponForce = 5f;
-                damage = 2;
-            }
-
-            print("Distance to other: " + dist);
-            if (dist < 3)
-            {
-                body.AddForce(Vector3.up * weaponForce, ForceMode.Impulse);
-            }
-        }*/
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        /*if (collision.gameObject.name == "BatPrefab(Clone)")
-        {
-            body.AddForce(Vector3.up * 24, ForceMode.Impulse);
-        }*/
-        Debug.Log("Oh Dear, I've been struck!");
+        
+        //Debug.Log("Oh Dear, I've been struck!");
     }
 }
