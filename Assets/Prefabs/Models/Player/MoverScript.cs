@@ -16,6 +16,7 @@ public class MoverScript : MonoBehaviour
     
     // array for weapons
     private int[] weapons;
+    public int[] weaponDamage;
     private int weaponCount = 4;
     public int currentWeaponCounter;
     private bool swapWeapon = false;
@@ -49,6 +50,13 @@ public class MoverScript : MonoBehaviour
         animComp = GetComponent<Animator>();
         currentWeaponCounter = 0;
         weapons = new int[weaponCount];
+
+        weaponDamage = new int[weaponCount];
+
+        weaponDamage[0] = 1;
+        weaponDamage[1] = 4;
+        weaponDamage[2] = 3;
+        weaponDamage[3] = 0;
 
         // add values to weapons array
         for (int i = 0; i < 3; i++)
@@ -241,5 +249,28 @@ public class MoverScript : MonoBehaviour
     {
         Destroy(this.gameObject);
         Debug.Log("Sorry. You Lost");
+    }
+
+    public int DamageAmount()
+    {
+        return weaponDamage[currentWeaponCounter];
+    }
+
+    public Vector3 playerPosition()
+    {
+        return transform.position;
+    }
+
+    public int playerRotation()
+    {
+        if (transform.rotation.y < 0)
+        {
+            return -1;
+        }
+
+        else
+        {
+            return 1;
+        }
     }
 }
