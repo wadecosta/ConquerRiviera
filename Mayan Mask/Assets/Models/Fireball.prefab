@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireball: {fileID: 1708574138110526438}
+  fireballSFX: {fileID: 3853873476422650987, guid: 244ac302a61694342b7ed75fe6b8688c, type: 3}
   player: {fileID: 5808123203253940918, guid: eab780963d72c344597ffd060e235667, type: 3}
   elapsedTime: 0
 --- !u!135 &474059000142327200
