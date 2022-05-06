@@ -10,20 +10,6 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 
-#Hopefully fix merge issues
-/Assets/Materials.meta
-/Assets/Prefabs.meta
-/Assets/Scripts.meta
-/UserSettings/EditorUserSettings.asset
-/UserSettings/Layouts/default-2021.dwlt
-Assets/Materials.meta
-Assets/Prefabs.meta
-Assets/Scripts.meta
-UserSettings/EditorUserSettings.asset
-UserSettings/Layouts/default-2021.dwlt
-.vsconfig
-
-
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
@@ -71,6 +57,3 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-UserSettings/Layouts/default-2021.dwlt
-
