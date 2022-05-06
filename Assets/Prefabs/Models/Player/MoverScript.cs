@@ -13,6 +13,9 @@ public class MoverScript : MonoBehaviour
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
     public float moveDirection;
+    public float raycastMultiplier;
+
+    private int health = 5;
     
     // array for weapons
     private int[] weapons;
@@ -39,6 +42,9 @@ public class MoverScript : MonoBehaviour
     
     // weapon script call
     public WeaponDeleteScript weaponCall;
+
+    // health us script call
+    // public HeartScript heartCall;
 
 
 
@@ -70,10 +76,18 @@ public class MoverScript : MonoBehaviour
        
     }
 
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            Death();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        float castDistance = collider.bounds.extents.y + 0.2f;
+        float castDistance = collider.bounds.extents.y + raycastMultiplier;
         feetInContactWithGround = Physics.Raycast(transform.position, Vector3.down, castDistance);
 
         float axis = Input.GetAxis("Horizontal");
@@ -247,7 +261,12 @@ public class MoverScript : MonoBehaviour
 
     public void Death()
     {
-        Destroy(this.gameObject);
+        animComp.SetTrigger("Death");
+        this.enabled = false;
+
+        //return to main menu
+        //Destroy(this.gameObject, 5f);
+
         Debug.Log("Sorry. You Lost");
     }
 
@@ -272,5 +291,21 @@ public class MoverScript : MonoBehaviour
         {
             return 1;
         }
+    }
+
+    // taking damage
+    public void hit(int damageNum)
+    {
+        health -= damageNum;
+        Debug.Log("Oh Dear, I've been struck for " + damageNum);
+        //heartCall.loseHealth();
+    }
+
+    // gaining health
+    public void heal()
+    {
+        health++;
+        Debug.Log("I feel better");
+        //heartCall.gainHealth();
     }
 }

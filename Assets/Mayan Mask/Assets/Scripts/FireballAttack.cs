@@ -16,6 +16,11 @@ public class FireballAttack : MonoBehaviour
         
     }
 
+    public void setPlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,5 +44,6 @@ public class FireballAttack : MonoBehaviour
     {
         Debug.Log("Player got hit by a Fireball!!!");
         Destroy(fireball);
+        player.GetComponent<MoverScript>().hit(2);
     }
 }

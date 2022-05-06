@@ -23,6 +23,8 @@ public class LevelParser : MonoBehaviour
 
     public GameObject Chest;
 
+    public GameObject Iguana;
+
     public Transform levelRoot;
 
 
@@ -109,34 +111,40 @@ public class LevelParser : MonoBehaviour
             {
 
                 // Instantiate a new GameObject that matches the type specified by letter
-		var rockObject = Instantiate(Rock);
-		var stoneObject = Instantiate(Stone);
-		var ladderObject = Instantiate(Ladder);
-		var waterObject = Instantiate(Water);
+        GameObject newObject;
 		var chestObject = Instantiate(Chest);
+        var iguanaObject = Instantiate(Iguana);
 
 
 		if(letter == 'x')
 		{
-			rockObject.transform.position = new Vector3(column, row, 0f);
+            newObject = Instantiate(Rock);
+			newObject.transform.position = new Vector3(column, row, 0f);
 		}
 		else if(letter == 'l')
 		{
-			ladderObject.transform.position = new Vector3(column, row, 0f);
+            newObject = Instantiate(Ladder);
+            newObject.transform.position = new Vector3(column, row, 0f);
 		}
 		else if(letter == 's')
 		{
-			stoneObject.transform.position = new Vector3(column, row, 0f);
-
+            newObject = Instantiate(Stone);
+            newObject.transform.position = new Vector3(column, row, 0f);
 		}
 		else if(letter == 'w')
 		{
-			waterObject.transform.position = new Vector3(column, row, 0f);
+            newObject = Instantiate(Water);
+			newObject.transform.position = new Vector3(column, row, 0f);
 		}
 		else if(letter == 'g')
 		{
-			chestObject.transform.position = new Vector3(column, row, 0f);
-		}
+            newObject = Instantiate(Chest);
+			newObject.transform.position = new Vector3(column, row, 0f);
+		} else if (letter == 'i')
+        {
+            newObject = Instantiate(Iguana);
+            newObject.transform.position = new Vector3(column, row, 0f);
+        }
 
 
                 // Position the new GameObject at the appropriate location by using row and column
