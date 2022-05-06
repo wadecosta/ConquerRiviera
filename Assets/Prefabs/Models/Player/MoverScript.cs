@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,9 @@ public class MoverScript : MonoBehaviour
     
     // weapon script call
     public WeaponDeleteScript weaponCall;
+    
+    // health us script call
+    public HeartScript heartCall;
 
 
 
@@ -67,7 +71,6 @@ public class MoverScript : MonoBehaviour
         
         GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
         weaponInstance.transform.position = weaponSpawnPoint.position;
-       
     }
 
     // Update is called once per frame
@@ -243,11 +246,30 @@ public class MoverScript : MonoBehaviour
         {
             animComp.SetBool("Attacking", false);
         }
+        
+        // test for gaining and losing health
+        
+        // gain health
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+           // heal();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            hit(1);
+        }
+
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void Death()
     {
-        Destroy(this.gameObject);
+        animComp.SetBool("isDead", true);
+        //Destroy(this.gameObject);
         Debug.Log("Sorry. You Lost");
     }
 
@@ -274,8 +296,19 @@ public class MoverScript : MonoBehaviour
         }
     }
 
-    public void hit()
+    // taking damage
+    public void hit(int damageNum)
     {
-        health--;
+        health -= damageNum;
+        Debug.Log("Oh Dear, I've been struck for " + damageNum);
+        heartCall.loseHealth();
+    }
+    
+    // gaining health
+    public void heal()
+    {
+        health++;
+        Debug.Log("I feel better");
+        heartCall.gainHealth();
     }
 }
