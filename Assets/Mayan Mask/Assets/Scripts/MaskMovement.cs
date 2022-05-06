@@ -58,6 +58,8 @@ public class MaskMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(mask.transform.position + 1.5f * Vector3.forward, mask.transform.TransformDirection(Vector3.forward) * 5f, Color.yellow);
+
         slider.value = CalculateHealth();
 
         if (health < maxHealth)
@@ -76,11 +78,11 @@ public class MaskMovement : MonoBehaviour
 
         if (countDown > 0)
         {
-            mask.transform.position += Vector3.forward * Time.deltaTime;
+            mask.transform.position += Vector3.left * Time.deltaTime;
         }
         else if (countDown > -5.0f)
         {
-            mask.transform.position += Vector3.back * Time.deltaTime;
+            mask.transform.position += Vector3.right * Time.deltaTime;
         }
         else
         {
@@ -110,10 +112,11 @@ public class MaskMovement : MonoBehaviour
         origin = mask.transform.position;
         direction = mask.transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(origin, mask.transform.TransformDirection(Vector3.forward), out hit, 5f))
+        if (Physics.Raycast(origin + 1.5f * Vector3.forward, mask.transform.TransformDirection(Vector3.forward), out hit, 5f))
         {
             Debug.DrawRay(origin, mask.transform.TransformDirection(Vector3.forward) * 5f, Color.yellow);
             Debug.Log("Did Hit");
+            player.GetComponent<MoverScript>().hit(3);
         }
         else
         {
@@ -126,8 +129,8 @@ public class MaskMovement : MonoBehaviour
     {
         imgIndicator.SetActive(false);
         fireballSFX.SetActive(true);
-        Instantiate(fireballPrefab, fireballSpawner.position, GameObject.Find("Fireball Spawner").transform.rotation);
-
+        GameObject ball = Instantiate(fireballPrefab, fireballSpawner.position, GameObject.Find("Fireball Spawner").transform.rotation);
+        ball.GetComponent<FireballAttack>().setPlayer(player);
 
     }
 
