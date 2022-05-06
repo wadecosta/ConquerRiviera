@@ -9,6 +9,7 @@ public class PoisonShotScript : MonoBehaviour
     public float speed;
     public float lifetime;
 
+    public GameObject target;
     public float targetHeight;
     public float targetDirection;
 
@@ -18,7 +19,7 @@ public class PoisonShotScript : MonoBehaviour
     void Start()
     {
         t = GetComponent<Transform>();
-        t.position = t.parent.position;
+        //t.position = t.parent.position;
     }
 
     // Update is called once per frame
@@ -35,24 +36,36 @@ public class PoisonShotScript : MonoBehaviour
         t.position += Vector3.up * speed * 0.5f * heightDiff * Time.deltaTime;
 
     }
-    public void setTarget(Transform target)
+    public void setTarget(GameObject newTarget)
     {
-        targetHeight = target.position.y;
-        targetDirection = target.position.z - t.position.z;
+        target = newTarget;
+        targetHeight = target.transform.position.y;
+        targetDirection = target.transform.position.z - t.position.z;
         targetDirection = targetDirection / Mathf.Abs(targetDirection);
+        if (targetDirection > 0)
+        {
+            t.RotateAround(transform.position, transform.up, 180f);
+        }
     }
 
     public void end()
     {
         GameObject p = GameObject.Instantiate(poisonPuddle);
         p.transform.position = t.position;
+        p.GetComponent<PoisonPuddleScript>().setTarget(target);
         //raycast down?
         Destroy(this.gameObject);
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        Debug.Log("ouch");
-        Destroy(this.gameObject);
+        if (other.gameObject == target)
+        {
+            Debug.Log("ouch");
+            Destroy(this.gameObject);
+        } else
+        {
+            end();
+        }
     }
 }
