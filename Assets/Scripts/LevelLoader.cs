@@ -33,7 +33,8 @@ public class LevelLoader : MonoBehaviour
             button.onClick.AddListener(
                 delegate{
                     StartGame = true;
-                    LoadLevel(startLevel);
+                    //LoadLevel(startLevel);
+		    SceneManager.LoadScene(1);
                 });
         }
     }
