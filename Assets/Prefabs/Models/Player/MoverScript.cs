@@ -12,7 +12,7 @@ public class MoverScript : MonoBehaviour
     private float fallSpeed;
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
-    public float moveDirection;
+    private float health = 5;
     
     // array for weapons
     private int[] weapons;
@@ -232,7 +232,7 @@ public class MoverScript : MonoBehaviour
             // check for shooting bow
             if (currentWeaponCounter == 3)
             {
-                moveDirection = body.velocity.x;
+                //moveDirection = body.velocity.x;
                 Transform arrowlocation = arrowSpawn;
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.transform.position = arrowlocation.position;
@@ -272,5 +272,10 @@ public class MoverScript : MonoBehaviour
         {
             return 1;
         }
+    }
+
+    public void hit()
+    {
+        health--;
     }
 }
