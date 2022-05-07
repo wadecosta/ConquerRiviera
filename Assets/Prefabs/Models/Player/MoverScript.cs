@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,14 @@ public class MoverScript : MonoBehaviour
     private float fallSpeed;
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
+<<<<<<< HEAD
     public float moveDirection;
     public float raycastMultiplier;
 
     private int health = 5;
+=======
+    private float health = 5;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     
     // array for weapons
     private int[] weapons;
@@ -42,6 +47,9 @@ public class MoverScript : MonoBehaviour
     
     // weapon script call
     public WeaponDeleteScript weaponCall;
+    
+    // health us script call
+    public HeartScript heartCall;
 
     // health us script call
     // public HeartScript heartCall;
@@ -73,7 +81,6 @@ public class MoverScript : MonoBehaviour
         
         GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
         weaponInstance.transform.position = weaponSpawnPoint.position;
-       
     }
 
     private void Update()
@@ -246,7 +253,7 @@ public class MoverScript : MonoBehaviour
             // check for shooting bow
             if (currentWeaponCounter == 3)
             {
-                moveDirection = body.velocity.x;
+                //moveDirection = body.velocity.x;
                 Transform arrowlocation = arrowSpawn;
                 GameObject arrow = Instantiate(this.arrow);
                 arrow.transform.position = arrowlocation.position;
@@ -257,16 +264,39 @@ public class MoverScript : MonoBehaviour
         {
             animComp.SetBool("Attacking", false);
         }
+        
+        // test for gaining and losing health
+        
+        // gain health
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+           // heal();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            hit(1);
+        }
+
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void Death()
     {
+<<<<<<< HEAD
         animComp.SetTrigger("Death");
         this.enabled = false;
 
         //return to main menu
         //Destroy(this.gameObject, 5f);
 
+=======
+        animComp.SetBool("isDead", true);
+        //Destroy(this.gameObject);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         Debug.Log("Sorry. You Lost");
     }
 
@@ -298,14 +328,24 @@ public class MoverScript : MonoBehaviour
     {
         health -= damageNum;
         Debug.Log("Oh Dear, I've been struck for " + damageNum);
+<<<<<<< HEAD
         //heartCall.loseHealth();
     }
 
+=======
+        heartCall.loseHealth();
+    }
+    
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     // gaining health
     public void heal()
     {
         health++;
         Debug.Log("I feel better");
+<<<<<<< HEAD
         //heartCall.gainHealth();
+=======
+        heartCall.gainHealth();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     }
 }
