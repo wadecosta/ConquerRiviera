@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
 using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
@@ -9,11 +12,19 @@ namespace TMPro.Examples
     public class VertexJitter : MonoBehaviour
     {
 
+<<<<<<< HEAD
         [FormerlySerializedAs("AngleMultiplier")] public float angleMultiplier = 1.0f;
         [FormerlySerializedAs("SpeedMultiplier")] public float speedMultiplier = 1.0f;
         [FormerlySerializedAs("CurveScale")] public float curveScale = 1.0f;
 
         private TMP_Text mTextComponent;
+=======
+        public float AngleMultiplier = 1.0f;
+        public float SpeedMultiplier = 1.0f;
+        public float CurveScale = 1.0f;
+
+        private TMP_Text m_TextComponent;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         private bool hasTextChanged;
 
         /// <summary>
@@ -21,14 +32,24 @@ namespace TMPro.Examples
         /// </summary>
         private struct VertexAnim
         {
+<<<<<<< HEAD
             public float AngleRange;
             public float Angle;
             public float Speed;
+=======
+            public float angleRange;
+            public float angle;
+            public float speed;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
         void Awake()
         {
+<<<<<<< HEAD
             mTextComponent = GetComponent<TMP_Text>();
+=======
+            m_TextComponent = GetComponent<TMP_Text>();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
         void OnEnable()
@@ -51,7 +72,11 @@ namespace TMPro.Examples
 
         void ON_TEXT_CHANGED(Object obj)
         {
+<<<<<<< HEAD
             if (obj == mTextComponent)
+=======
+            if (obj == m_TextComponent)
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 hasTextChanged = true;
         }
 
@@ -64,9 +89,15 @@ namespace TMPro.Examples
 
             // We force an update of the text object since it would only be updated at the end of the frame. Ie. before this code is executed on the first frame.
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
+<<<<<<< HEAD
             mTextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = mTextComponent.textInfo;
+=======
+            m_TextComponent.ForceMeshUpdate();
+
+            TMP_TextInfo textInfo = m_TextComponent.textInfo;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
             Matrix4x4 matrix;
 
@@ -77,8 +108,13 @@ namespace TMPro.Examples
             VertexAnim[] vertexAnim = new VertexAnim[1024];
             for (int i = 0; i < 1024; i++)
             {
+<<<<<<< HEAD
                 vertexAnim[i].AngleRange = Random.Range(10f, 25f);
                 vertexAnim[i].Speed = Random.Range(1f, 3f);
+=======
+                vertexAnim[i].angleRange = Random.Range(10f, 25f);
+                vertexAnim[i].speed = Random.Range(1f, 3f);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
             }
 
             // Cache the vertex data of the text object as the Jitter FX is applied to the original position of the characters.
@@ -141,10 +177,17 @@ namespace TMPro.Examples
                     destinationVertices[vertexIndex + 2] = sourceVertices[vertexIndex + 2] - offset;
                     destinationVertices[vertexIndex + 3] = sourceVertices[vertexIndex + 3] - offset;
 
+<<<<<<< HEAD
                     vertAnim.Angle = Mathf.SmoothStep(-vertAnim.AngleRange, vertAnim.AngleRange, Mathf.PingPong(loopCount / 25f * vertAnim.Speed, 1f));
                     Vector3 jitterOffset = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.25f, .25f), 0);
 
                     matrix = Matrix4x4.TRS(jitterOffset * curveScale, Quaternion.Euler(0, 0, Random.Range(-5f, 5f) * angleMultiplier), Vector3.one);
+=======
+                    vertAnim.angle = Mathf.SmoothStep(-vertAnim.angleRange, vertAnim.angleRange, Mathf.PingPong(loopCount / 25f * vertAnim.speed, 1f));
+                    Vector3 jitterOffset = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.25f, .25f), 0);
+
+                    matrix = Matrix4x4.TRS(jitterOffset * CurveScale, Quaternion.Euler(0, 0, Random.Range(-5f, 5f) * AngleMultiplier), Vector3.one);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
                     destinationVertices[vertexIndex + 0] = matrix.MultiplyPoint3x4(destinationVertices[vertexIndex + 0]);
                     destinationVertices[vertexIndex + 1] = matrix.MultiplyPoint3x4(destinationVertices[vertexIndex + 1]);
@@ -163,7 +206,11 @@ namespace TMPro.Examples
                 for (int i = 0; i < textInfo.meshInfo.Length; i++)
                 {
                     textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
+<<<<<<< HEAD
                     mTextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+=======
+                    m_TextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
 
                 loopCount += 1;

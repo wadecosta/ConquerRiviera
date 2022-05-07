@@ -8,11 +8,19 @@ namespace TMPro.Examples
     public class VertexColorCycler : MonoBehaviour
     {
 
+<<<<<<< HEAD
         private TMP_Text mTextComponent;
 
         void Awake()
         {
             mTextComponent = GetComponent<TMP_Text>();
+=======
+        private TMP_Text m_TextComponent;
+
+        void Awake()
+        {
+            m_TextComponent = GetComponent<TMP_Text>();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
 
@@ -29,6 +37,7 @@ namespace TMPro.Examples
         IEnumerator AnimateVertexColors()
         {
             // Force the text object to update right away so we can have geometry to modify right from the start.
+<<<<<<< HEAD
             mTextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = mTextComponent.textInfo;
@@ -36,6 +45,15 @@ namespace TMPro.Examples
 
             Color32[] newVertexColors;
             Color32 c0 = mTextComponent.color;
+=======
+            m_TextComponent.ForceMeshUpdate();
+
+            TMP_TextInfo textInfo = m_TextComponent.textInfo;
+            int currentCharacter = 0;
+
+            Color32[] newVertexColors;
+            Color32 c0 = m_TextComponent.color;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
             while (true)
             {
@@ -68,7 +86,11 @@ namespace TMPro.Examples
                     newVertexColors[vertexIndex + 3] = c0;
 
                     // New function which pushes (all) updated vertex data to the appropriate meshes when using either the Mesh Renderer or CanvasRenderer.
+<<<<<<< HEAD
                     mTextComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
+=======
+                    m_TextComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
                     // This last process could be done to only update the vertex data that has changed as opposed to all of the vertex data but it would require extra steps and knowing what type of renderer is used.
                     // These extra steps would be a performance optimization but it is unlikely that such optimization will be necessary.

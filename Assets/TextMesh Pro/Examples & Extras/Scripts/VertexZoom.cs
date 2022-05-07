@@ -2,7 +2,10 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
@@ -10,17 +13,29 @@ namespace TMPro.Examples
 
     public class VertexZoom : MonoBehaviour
     {
+<<<<<<< HEAD
         [FormerlySerializedAs("AngleMultiplier")] public float angleMultiplier = 1.0f;
         [FormerlySerializedAs("SpeedMultiplier")] public float speedMultiplier = 1.0f;
         [FormerlySerializedAs("CurveScale")] public float curveScale = 1.0f;
 
         private TMP_Text mTextComponent;
+=======
+        public float AngleMultiplier = 1.0f;
+        public float SpeedMultiplier = 1.0f;
+        public float CurveScale = 1.0f;
+
+        private TMP_Text m_TextComponent;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         private bool hasTextChanged;
 
 
         void Awake()
         {
+<<<<<<< HEAD
             mTextComponent = GetComponent<TMP_Text>();
+=======
+            m_TextComponent = GetComponent<TMP_Text>();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
         void OnEnable()
@@ -44,7 +59,11 @@ namespace TMPro.Examples
 
         void ON_TEXT_CHANGED(Object obj)
         {
+<<<<<<< HEAD
             if (obj == mTextComponent)
+=======
+            if (obj == m_TextComponent)
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 hasTextChanged = true;
         }
 
@@ -57,9 +76,15 @@ namespace TMPro.Examples
 
             // We force an update of the text object since it would only be updated at the end of the frame. Ie. before this code is executed on the first frame.
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
+<<<<<<< HEAD
             mTextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = mTextComponent.textInfo;
+=======
+            m_TextComponent.ForceMeshUpdate();
+
+            TMP_TextInfo textInfo = m_TextComponent.textInfo;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
             Matrix4x4 matrix;
             TMP_MeshInfo[] cachedMeshInfoVertexData = textInfo.CopyMeshInfoVertexData();
@@ -182,7 +207,11 @@ namespace TMPro.Examples
                     textInfo.meshInfo[i].mesh.uv = textInfo.meshInfo[i].uvs0;
                     textInfo.meshInfo[i].mesh.colors32 = textInfo.meshInfo[i].colors32;
 
+<<<<<<< HEAD
                     mTextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+=======
+                    m_TextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
 
                 yield return new WaitForSeconds(0.1f);

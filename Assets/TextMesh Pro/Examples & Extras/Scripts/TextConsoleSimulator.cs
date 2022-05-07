@@ -6,18 +6,30 @@ namespace TMPro.Examples
 {
     public class TextConsoleSimulator : MonoBehaviour
     {
+<<<<<<< HEAD
         private TMP_Text mTextComponent;
+=======
+        private TMP_Text m_TextComponent;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         private bool hasTextChanged;
 
         void Awake()
         {
+<<<<<<< HEAD
             mTextComponent = gameObject.GetComponent<TMP_Text>();
+=======
+            m_TextComponent = gameObject.GetComponent<TMP_Text>();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
 
         void Start()
         {
+<<<<<<< HEAD
             StartCoroutine(RevealCharacters(mTextComponent));
+=======
+            StartCoroutine(RevealCharacters(m_TextComponent));
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
             //StartCoroutine(RevealWords(m_TextComponent));
         }
 

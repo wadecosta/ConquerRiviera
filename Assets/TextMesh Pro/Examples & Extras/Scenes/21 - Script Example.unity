@@ -20,7 +20,10 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
@@ -28,6 +31,7 @@ RenderSettings:
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
+<<<<<<< HEAD
 =======
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
@@ -37,6 +41,8 @@ RenderSettings:
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -47,7 +53,10 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
@@ -55,6 +64,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
+<<<<<<< HEAD
 =======
   m_Sun: {fileID: 705507994}
   m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
@@ -64,6 +74,8 @@ LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -74,7 +86,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     serializedVersion: 10
     m_Resolution: 1
     m_BakeResolution: 50
@@ -93,6 +108,7 @@ LightmapSettings:
     m_ReflectionCompression: 2
     m_MixedBakeMode: 1
     m_BakeBackend: 0
+<<<<<<< HEAD
 =======
     serializedVersion: 12
     m_Resolution: 2
@@ -114,15 +130,21 @@ LightmapSettings:
     m_MixedBakeMode: 2
     m_BakeBackend: 1
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 0
+<<<<<<< HEAD
 =======
     m_PVREnvironmentSampleCount: 500
     m_PVREnvironmentReferencePointCount: 2048
@@ -135,6 +157,8 @@ LightmapSettings:
     m_PVRFilterTypeAO: 0
     m_PVREnvironmentMIS: 0
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -142,11 +166,15 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &5
+<<<<<<< HEAD
 =======
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
@@ -155,6 +183,8 @@ LightmapSettings:
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -169,7 +199,10 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
     cellSize: 0.16666666
     manualTileSize: 0
     tileSize: 256
@@ -178,6 +211,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &1079079952
+<<<<<<< HEAD
 =======
     cellSize: 0.16666667
     manualTileSize: 0
@@ -190,6 +224,8 @@ NavMeshSettings:
   m_NavMeshData: {fileID: 0}
 --- !u!1 &402442491
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,6 +233,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
   - component: {fileID: 1079079957}
   - component: {fileID: 1079079956}
@@ -332,6 +369,11 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+  - component: {fileID: 1079079957}
+  - component: {fileID: 1079079956}
+  - component: {fileID: 1079079953}
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -339,16 +381,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
 --- !u!81 &1079079953
 =======
 --- !u!81 &963194226
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+--- !u!81 &1079079953
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
   m_GameObject: {fileID: 1079079952}
   m_Enabled: 1
@@ -358,12 +405,20 @@ AudioListener:
   m_Enabled: 1
 --- !u!20 &963194227
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+  m_GameObject: {fileID: 1079079952}
+  m_Enabled: 1
+--- !u!20 &1079079956
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_GameObject: {fileID: 1079079952}
   m_Enabled: 1
   serializedVersion: 2
@@ -373,6 +428,7 @@ Camera:
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_GateFitMode: 2
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
@@ -385,6 +441,8 @@ Camera:
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -396,11 +454,15 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
   orthographic size: 100
 =======
   orthographic size: 5
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+  orthographic size: 100
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -409,32 +471,44 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
   m_HDR: 0
 =======
   m_HDR: 1
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+  m_HDR: 0
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
 --- !u!4 &1079079957
 =======
 --- !u!4 &963194228
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+--- !u!4 &1079079957
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_GameObject: {fileID: 1079079952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -28.517307}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -442,10 +516,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
 --- !u!1 &1888731522
 =======
@@ -521,6 +598,9 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ac64475e6ecda4040a277b1eeeecec21, type: 3}
 --- !u!1 &1009760624
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+--- !u!1 &1888731522
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,11 +608,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   - component: {fileID: 1888731524}
   - component: {fileID: 1888731523}
   m_Layer: 0
   m_Name: Simple Script
+<<<<<<< HEAD
 =======
   - component: {fileID: 1009760628}
   - component: {fileID: 1009760627}
@@ -541,11 +625,14 @@ GameObject:
   m_Layer: 0
   m_Name: Cube
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
 --- !u!114 &1888731523
 MonoBehaviour:
@@ -553,11 +640,18 @@ MonoBehaviour:
 --- !u!65 &1009760625
 BoxCollider:
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+--- !u!114 &1888731523
+MonoBehaviour:
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_GameObject: {fileID: 1888731522}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -565,6 +659,7 @@ BoxCollider:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1888731524
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1009760624}
   m_Material: {fileID: 0}
@@ -625,12 +720,17 @@ MeshFilter:
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1009760628
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/TextMesh Pro/Examples & Extras/Scenes/21 - Script Example.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
   m_GameObject: {fileID: 1888731522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -639,6 +739,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1009760624}
   m_LocalRotation: {x: -0.00000003819557, y: 0.00000011920925, z: -0.000000006585443, w: 1}
@@ -1174,3 +1275,5 @@ MonoBehaviour:
   jumpForce: 50
   feetInContactWithGround: 0
 >>>>>>> origin/dev:Assets/Scenes/SampleScene.unity
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
