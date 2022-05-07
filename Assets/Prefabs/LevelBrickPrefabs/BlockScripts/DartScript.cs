@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class DartScript : MonoBehaviour
 {
+    // gets script from parent
     [FormerlySerializedAs("ParentScript")] public PressurePlateScript parentScript;
     
     private Rigidbody myRigidBody;
@@ -37,34 +38,36 @@ public class DartScript : MonoBehaviour
         Vector3 spawnLocation = new Vector3(parentScript.spawnLocation().position.x, 
             parentScript.spawnLocation().position.y, parentScript.spawnLocation().position.z);
 
-        // calculate what direction the arrow should be going in
-        //Vector3 shotDirection = spawnLocation - shooterLocation;
+
+        // find the X and Y differences between the two points
         float shotDirectionX = Math.Abs(spawnLocation.x - shooterLocation.x);
         float shotDirectionY = Math.Abs(spawnLocation.y - shooterLocation.y);
-        //Vector3 shotDirection = shooterLocation - spawnLocation;
-        //shotDirection.Normalize();
 
+
+        // find out which difference is the greatest
         if (shotDirectionX > shotDirectionY)
         {
+            // if the dart should go in the negative direction
             if (spawnLocation.x - shooterLocation.x < 0)
             {
                 myRigidBody.velocity = Vector3.left * speed;
             }
+            // else go right
             else
             {
                 myRigidBody.velocity = Vector3.right * speed;
             }
         }
+        // darts will only go down not up
         else
         {
             myRigidBody.velocity = Vector3.down * speed;
         }
-        //myRigidBody.velocity = shotDirection * speed;
-        Debug.Log(myRigidBody.velocity);
     }
     
     private void OnCollisionEnter(Collision collision)
     {
+        // if it hits the player hurt the player
         if (collision.gameObject.name == "player")
         {
             MoverScriptCall.hit(damage);
