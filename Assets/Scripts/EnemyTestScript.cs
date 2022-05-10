@@ -14,7 +14,7 @@ public class EnemyTestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // find the player script
         MoverScriptCall = GameObject.Find("player").GetComponent<MoverScript>();
     }
 
@@ -23,7 +23,7 @@ public class EnemyTestScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //playerPostion = new Vector3(MoverScriptCall.playerPosition().x, MoverScriptCall.playerPosition().y, MoverScriptCall.playerPosition().z);
+            //
             playerPostion = new Vector3(MoverScriptCall.playerPosition().x - transform.position.x,
                 MoverScriptCall.playerPosition().y - transform.position.y,
                 MoverScriptCall.playerPosition().z - transform.position.z);
