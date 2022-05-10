@@ -13,12 +13,12 @@ public class MoverScript : MonoBehaviour
     private float fallSpeed;
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
-    private float health = 5;
+    private int health = 5;
     
     // array for weapons
     private int[] weapons;
     public int[] weaponDamage;
-    private int weaponCount = 4;
+    private int weaponCount = 2;
     public int currentWeaponCounter;
     private bool swapWeapon = false;
     private GameObject currentWeapon;
@@ -57,13 +57,13 @@ public class MoverScript : MonoBehaviour
 
         weaponDamage = new int[weaponCount];
 
-        weaponDamage[0] = 1;
-        weaponDamage[1] = 4;
-        weaponDamage[2] = 3;
-        weaponDamage[3] = 0;
+        weaponDamage[0] = 2;
+        weaponDamage[1] = 1;
+        //weaponDamage[2] = 3;
+        //weaponDamage[3] = 0;
 
         // add values to weapons array
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
             weapons[i] = (i + 1);
         }
@@ -196,7 +196,7 @@ public class MoverScript : MonoBehaviour
             }
 
             // if the weapon is the bat
-            if (currentWeaponCounter == 1)
+            if (currentWeaponCounter == 0)
             {
                 GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
                 weaponInstance.transform.position = batSpawnPoint.position;
@@ -235,9 +235,21 @@ public class MoverScript : MonoBehaviour
             // check for shooting bow
             if (currentWeaponCounter == 3)
             {
+                int arrowRotation;
+
+                if (this.transform.rotation.y >= 0)
+                {
+                    arrowRotation = 180;
+                }
+                else
+                {
+                    arrowRotation = 0;
+                }
+                
                 //moveDirection = body.velocity.x;
+                Quaternion rotation = Quaternion.Euler(0, 0, arrowRotation);
                 Transform arrowlocation = arrowSpawn;
-                GameObject arrow = Instantiate(this.arrow);
+                GameObject arrow = Instantiate(this.arrow, Vector3.zero, rotation);
                 arrow.transform.position = arrowlocation.position;
             }
         }

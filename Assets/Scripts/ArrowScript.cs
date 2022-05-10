@@ -21,6 +21,7 @@ public class ArrowScript : MonoBehaviour
     {
         MoverScriptCall = GameObject.Find("player").GetComponent<MoverScript>();
         myRigidBody = GetComponent<Rigidbody>();
+        Debug.Log("Arrow Spawned");
         Fire();
     }
     
@@ -42,7 +43,9 @@ public class ArrowScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("Arrow Destroyed");
         Destroy(this.gameObject);
+        
     }
 
     // Update is called once per frame

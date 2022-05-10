@@ -1730,8 +1730,8 @@ MonoBehaviour:
   weaponDamage: 
   currentWeaponCounter: 0
   weaponWheel:
-  - {fileID: 2569343657790922742, guid: b55e99ea25a1b31449709b2d11f96850, type: 3}
   - {fileID: 1901350795013335701, guid: 208cd0315985bd448b8d4f2b0990c039, type: 3}
+  - {fileID: 1992627252769784492, guid: 2241944f267570246a9c5649edd6b736, type: 3}
   - {fileID: 5454075643111707612, guid: 8e00fedb68e85b84a8e67be845032cf7, type: 3}
   - {fileID: 1992627252769784492, guid: 2241944f267570246a9c5649edd6b736, type: 3}
   weaponSpawnPoint: {fileID: 5984122010563701373}
