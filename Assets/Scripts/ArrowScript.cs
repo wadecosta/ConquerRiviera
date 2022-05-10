@@ -9,7 +9,7 @@ public class ArrowScript : MonoBehaviour
     public float speed = 2;
     public float direction;
 
-    public float damage = 1f;
+    public float damage = 1;
     
     
     // find the player script
