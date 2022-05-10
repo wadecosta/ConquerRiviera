@@ -65458,6 +65458,14 @@ PrefabInstance:
       propertyPath: maxRunSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5984122010884096274, guid: 06c5e403435e5264dac7ced5312a7aca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984122010884096274, guid: 06c5e403435e5264dac7ced5312a7aca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.268
+      objectReference: {fileID: 0}
     - target: {fileID: 6089260588399198743, guid: 06c5e403435e5264dac7ced5312a7aca, type: 3}
       propertyPath: m_RootOrder
       value: 1

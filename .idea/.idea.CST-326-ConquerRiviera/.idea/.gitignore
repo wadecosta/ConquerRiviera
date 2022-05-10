@@ -1,11 +1,13 @@
-﻿# Default ignored files
+
+# Default ignored files
 /shelf/
 /workspace.xml
 # Rider ignored files
-/.idea.CST-326-ConquerRiviera.iml
-/projectSettingsUpdater.xml
 /contentModel.xml
 /modules.xml
+/projectSettingsUpdater.xml
+/.idea.CST-326-ConquerRiviera.iml
+
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
