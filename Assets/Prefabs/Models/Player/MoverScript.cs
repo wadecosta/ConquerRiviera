@@ -14,7 +14,7 @@ public class MoverScript : MonoBehaviour
     private float maxFallSpeed = 12f;
     private float minFallSpeed = 4f;
     private int health = 5;
-    
+
     // array for weapons
     private int[] weapons;
     public int[] weaponDamage;
@@ -22,7 +22,7 @@ public class MoverScript : MonoBehaviour
     public int currentWeaponCounter;
     private bool swapWeapon = false;
     private GameObject currentWeapon;
-    
+
     // weapon prefabs
     public GameObject[] weaponWheel;
     public Transform weaponSpawnPoint;
@@ -33,14 +33,14 @@ public class MoverScript : MonoBehaviour
     private Collider collider;
 
     private Animator animComp;
-    
+
     // shooting weapons
     public GameObject arrow;
     public Transform arrowSpawn;
-    
+
     // weapon script call
     public WeaponDeleteScript weaponCall;
-    
+
     // health us script call
     public HeartScript heartCall;
 
@@ -68,7 +68,7 @@ public class MoverScript : MonoBehaviour
             weapons[i] = (i + 1);
         }
 
-        
+
         GameObject weaponInstance = Instantiate(weaponWheel[0]);
     }
 
@@ -105,7 +105,7 @@ public class MoverScript : MonoBehaviour
         {
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-        
+
         // if horizontal speed is too high
         if (Mathf.Abs(body.velocity.x) > maxRunSpeed)
         {
@@ -158,7 +158,7 @@ public class MoverScript : MonoBehaviour
         {
             animComp.SetBool("TouchingGround", false);
         }
-        
+
         // swapping weapons
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q))
         {
@@ -230,7 +230,7 @@ public class MoverScript : MonoBehaviour
                     animComp.SetInteger("SelectedWeapon", i);
                 }
             }
-            
+
             // check for shooting bow
             if (currentWeaponCounter == 1)
             {
@@ -244,7 +244,7 @@ public class MoverScript : MonoBehaviour
                 {
                     arrowRotation = 0;
                 }
-                
+
                 //moveDirection = body.velocity.x;
                 Quaternion rotation = Quaternion.Euler(0, 0, arrowRotation);
                 Transform arrowlocation = arrowSpawn;
@@ -257,13 +257,13 @@ public class MoverScript : MonoBehaviour
         {
             animComp.SetBool("Attacking", false);
         }
-        
+
         // test for gaining and losing health
-        
+
         // gain health
         if (Input.GetKeyDown(KeyCode.O))
         {
-           // heal();
+            // heal();
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -314,12 +314,18 @@ public class MoverScript : MonoBehaviour
         Debug.Log("Oh Dear, I've been struck for " + damageNum);
         heartCall.loseHealth(damageNum);
     }
-    
+
     // gaining health
     public void heal()
     {
         health++;
         Debug.Log("I feel better");
         heartCall.gainHealth();
+    }
+
+    // return weapon number
+    public int weaponNum()
+    {
+        return currentWeaponCounter;
     }
 }
