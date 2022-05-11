@@ -60,9 +60,9 @@ public class HeartScript : MonoBehaviour
         Debug.Log("health is: " + health);
     }
 
-    public void loseHealth()
+    public void loseHealth(int damage)
     {
-        health--;
+        health -= damage;
         Debug.Log("health is: " + health);
     }
 }
