@@ -69,8 +69,7 @@ public class MoverScript : MonoBehaviour
         }
 
         
-        GameObject weaponInstance = Instantiate(weaponWheel[currentWeaponCounter]);
-        weaponInstance.transform.position = weaponSpawnPoint.position;
+        GameObject weaponInstance = Instantiate(weaponWheel[0]);
     }
 
     // Update is called once per frame
@@ -233,7 +232,7 @@ public class MoverScript : MonoBehaviour
             }
             
             // check for shooting bow
-            if (currentWeaponCounter == 3)
+            if (currentWeaponCounter == 1)
             {
                 int arrowRotation;
 
@@ -313,7 +312,7 @@ public class MoverScript : MonoBehaviour
     {
         health -= damageNum;
         Debug.Log("Oh Dear, I've been struck for " + damageNum);
-        heartCall.loseHealth();
+        heartCall.loseHealth(damageNum);
     }
     
     // gaining health

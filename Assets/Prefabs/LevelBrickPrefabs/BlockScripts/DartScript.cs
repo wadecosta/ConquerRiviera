@@ -11,7 +11,7 @@ public class DartScript : MonoBehaviour
     [FormerlySerializedAs("ParentScript")] public PressurePlateScript parentScript;
     
     private Rigidbody myRigidBody;
-    public float speed = 5;
+    public float speed = 8;
     public int damage = 1;
     public MoverScript MoverScriptCall;
     // Start is called before the first frame update

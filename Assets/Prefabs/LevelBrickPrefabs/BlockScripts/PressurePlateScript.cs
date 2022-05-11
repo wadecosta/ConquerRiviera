@@ -47,11 +47,11 @@ public class PressurePlateScript : MonoBehaviour
             {
                 if ((shooter.position.x - shotSpawn.position.x) < 0)
                 {
-                    dartRotation = 0;
+                    dartRotation = 180;
                 }
                 else
                 {
-                    dartRotation = 180;
+                    dartRotation = 0;
                 }
             }
             
