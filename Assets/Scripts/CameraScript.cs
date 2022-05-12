@@ -15,7 +15,7 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         // get the x position of the character
-        Vector3 newPosition = new Vector3(character.position.x, character.position.y, transform.position.z);
+        Vector3 newPosition = new Vector3(character.position.x + 2, character.position.y + 2, transform.position.z);
 
         transform.position = newPosition;
     }

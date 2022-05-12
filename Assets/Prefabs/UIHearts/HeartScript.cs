@@ -56,13 +56,15 @@ public class HeartScript : MonoBehaviour
 
     public void gainHealth()
     {
-        health++;
-        Debug.Log("health is: " + health);
+        health += 2;
+        if (health > numHearts)
+        {
+            health = numHearts;
+        }
     }
 
     public void loseHealth(int damage)
     {
         health -= damage;
-        Debug.Log("health is: " + health);
     }
 }
