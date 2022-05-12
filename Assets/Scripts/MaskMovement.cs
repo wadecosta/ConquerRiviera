@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class MaskMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject bgSFX;
+    public GameObject bossSFX;
     public GameObject fireballSFX;
     public GameObject heatwaveSFX;
     public GameObject deathScreamSFX;
@@ -46,13 +48,22 @@ public class MaskMovement : MonoBehaviour
 
     public Transform fireballSpawner;
     private bool leavestate;
+    
+    public MoverScript MoverScriptCall;
+    private bool playerRay;
+    public Vector3 playerPostion;
     void Start()
-    { 
+    {
         sphereRadius = 5;
         health = 100;
         countDown = 5f;
         maxHealth = 100f;
         health = maxHealth;
+        
+        // find the player script
+        MoverScriptCall = GameObject.Find("player").GetComponent<MoverScript>();
+        bgSFX.SetActive(false);
+        bossSFX.SetActive(true);
     }
 
     // Update is called once per frame
@@ -60,15 +71,15 @@ public class MaskMovement : MonoBehaviour
     {
         Debug.DrawRay(mask.transform.position + 2f * Vector3.right, mask.transform.TransformDirection(Vector3.left) * 5f, Color.yellow);
 
-        //slider.value = CalculateHealth();
+        slider.value = CalculateHealth();
 
         if (health < maxHealth)
         {
-            healthBarUI.SetActive(true);
+            //healthBarUI.SetActive(true);
         }
         int indicator = 2;
         elapsedTime += Time.deltaTime;
-        if (elapsedTime >= 7f)
+        if (elapsedTime >= 4f)
         {
             elapsedTime = 0f;
             indicator = choseIndicator();
@@ -87,6 +98,29 @@ public class MaskMovement : MonoBehaviour
         else
         {
             countDown = 5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            int weaponCount = MoverScriptCall.weaponNum();
+
+            if (weaponCount == 0)
+            {
+                playerPostion = MoverScriptCall.playerPosition();
+                playerPostion -= transform.position;
+                playerRay = Physics.Raycast(transform.position, playerPostion, 5);
+
+                if (playerRay == true)
+                {
+                    takeDamage(10);
+                }
+            }
+        }
+
+        if (health <= 0)
+        {
+            die();
+            SceneManager.LoadScene("End Menu");
         }
     }
 
@@ -112,15 +146,16 @@ public class MaskMovement : MonoBehaviour
         origin = mask.transform.position;
         direction = mask.transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(origin + 1.5f * Vector3.forward, mask.transform.TransformDirection(Vector3.forward), out hit, 5f))
+        if (Physics.Raycast(mask.transform.position + 2f * Vector3.right, mask.transform.TransformDirection(Vector3.left) * 5f, out hit, 5f))
         {
-            Debug.DrawRay(origin, mask.transform.TransformDirection(Vector3.forward) * 5f, Color.yellow);
-            Debug.Log("Did Hit");
-            player.GetComponent<MoverScript>().hit(3);
+            Debug.Log("**************" + hit.collider.gameObject);
+            if (hit.collider.gameObject.name == "player")
+            {
+                player.GetComponent<MoverScript>().hit(3);
+            }
         }
         else
         {
-            Debug.DrawRay(origin, mask.transform.TransformDirection(Vector3.forward) * 5f, Color.white);
             Debug.Log("Did not Hit");
         }
     }
@@ -179,5 +214,19 @@ public class MaskMovement : MonoBehaviour
     float CalculateHealth()
     {
         return (health / maxHealth);
+    }
+
+    public void takeDamage(int damageNum)
+    {
+        health -= damageNum;
+        Debug.Log("Boss has " + health +" health left.");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "ArrowPrefab(Clone)")
+        {
+            takeDamage(3);
+        }
     }
 }

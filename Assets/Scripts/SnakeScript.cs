@@ -6,28 +6,38 @@ public class SnakeScript : MonoBehaviour
 {
     public Transform target;
     public GameObject poisonShot;
-
+    public GameObject wall;
+    
     public float lineOfSightDistance;
     public float speed;
     public float maxCooldown;
     public float cooldown = 0;
     public int direction = -1;
 
+    public Vector3 targetPos;
     public int health = 2;
     public GameObject arrow;
     //public GameObject bat;
-
+    public Vector3 playerPostion;
+    public MoverScript MoverScriptCall;
+    private bool playerRay;
     Animator iguanaAnimator;
 
     void Start()
     {
         iguanaAnimator = GetComponent<Animator>();
         target = GameObject.Find("player").transform;
+        targetPos = target.position;
+        // find the player script
+        MoverScriptCall = GameObject.Find("player").GetComponent<MoverScript>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        targetPos = target.position;
+
         //shooting
         if (cooldown <= 0 && hasLineOfSight())
         {
@@ -41,11 +51,19 @@ public class SnakeScript : MonoBehaviour
         // make this code better
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Vector3 playerPostion = target.transform.position - transform.position;
-            if (Physics.Raycast(transform.position, playerPostion, 3) && target.GetComponent<MoverScript>().weaponNum() == 0)
+            playerPostion = MoverScriptCall.playerPosition();
+            playerPostion -= transform.position;
+            RaycastHit obj;
+            if (Physics.Raycast(transform.position, playerPostion,out obj, 1f))
             {
-                hit(2);
+                if (obj.collider.gameObject.name.Equals("player"))
+                {
+                    hit(2);
+                }
+
             }
+            
+            
         }
 
     }
@@ -61,7 +79,6 @@ public class SnakeScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Iguana raycast lookahead failed");
             turnAround();
         }
     }
@@ -74,9 +91,9 @@ public class SnakeScript : MonoBehaviour
 
     private bool hasLineOfSight()
     {
-        if ((target.position - this.transform.position).magnitude > lineOfSightDistance)
+        if ((targetPos - this.transform.position).magnitude > lineOfSightDistance)
             return false;
-        if (direction * (target.position.x - this.transform.position.x) > 0)
+        if (direction * (targetPos.x - this.transform.position.x) > 0)
             return true;
         return false;
     }
@@ -95,7 +112,6 @@ public class SnakeScript : MonoBehaviour
     {
         if (collision.gameObject == target)
         {
-            Debug.Log("smack");
             iguanaAnimator.SetTrigger("Attack");
             //reduce health of iguana
             target.gameObject.GetComponent<MoverScript>().hit(1);
@@ -106,7 +122,6 @@ public class SnakeScript : MonoBehaviour
             hit(1);
         } else if (this.transform.position.y - collision.transform.position.y <= 0.1)
         {
-            Debug.Log("Iguana collided with " + collision.gameObject.name);
             turnAround();
         }
     }
@@ -114,12 +129,13 @@ public class SnakeScript : MonoBehaviour
     public void die()
     {
         iguanaAnimator.SetTrigger("Death");
+        Destroy(wall, 3f);
         Destroy(this.gameObject, 3f);
+        
     }
 
     public void hit(int damage)
     {
-        Debug.Log("Iguana got hit for " + damage);
         health -= damage;
         if (health <= 0) die();
         iguanaAnimator.SetTrigger("Hit");
