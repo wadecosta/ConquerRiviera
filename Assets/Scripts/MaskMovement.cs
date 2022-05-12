@@ -112,7 +112,7 @@ public class MaskMovement : MonoBehaviour
 
                 if (playerRay == true)
                 {
-                    takeDamage(10);
+                    takeDamage(4);
                 }
             }
         }
