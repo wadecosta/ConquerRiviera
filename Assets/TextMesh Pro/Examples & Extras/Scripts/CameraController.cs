@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
@@ -12,6 +16,30 @@ namespace TMPro.Examples
         private Transform cameraTransform;
         private Transform dummyTarget;
 
+<<<<<<< HEAD
+        [FormerlySerializedAs("CameraTarget")] public Transform cameraTarget;
+
+        [FormerlySerializedAs("FollowDistance")] public float followDistance = 30.0f;
+        [FormerlySerializedAs("MaxFollowDistance")] public float maxFollowDistance = 100.0f;
+        [FormerlySerializedAs("MinFollowDistance")] public float minFollowDistance = 2.0f;
+
+        [FormerlySerializedAs("ElevationAngle")] public float elevationAngle = 30.0f;
+        [FormerlySerializedAs("MaxElevationAngle")] public float maxElevationAngle = 85.0f;
+        [FormerlySerializedAs("MinElevationAngle")] public float minElevationAngle = 0f;
+
+        [FormerlySerializedAs("OrbitalAngle")] public float orbitalAngle = 0f;
+
+        [FormerlySerializedAs("CameraMode")] public CameraModes cameraMode = CameraModes.Follow;
+
+        [FormerlySerializedAs("MovementSmoothing")] public bool movementSmoothing = true;
+        [FormerlySerializedAs("RotationSmoothing")] public bool rotationSmoothing = false;
+        private bool previousSmoothing;
+
+        [FormerlySerializedAs("MovementSmoothingValue")] public float movementSmoothingValue = 25f;
+        [FormerlySerializedAs("RotationSmoothingValue")] public float rotationSmoothingValue = 5.0f;
+
+        [FormerlySerializedAs("MoveSensitivity")] public float moveSensitivity = 2.0f;
+=======
         public Transform CameraTarget;
 
         public float FollowDistance = 30.0f;
@@ -34,6 +62,7 @@ namespace TMPro.Examples
         public float RotationSmoothingValue = 5.0f;
 
         public float MoveSensitivity = 2.0f;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
         private Vector3 currentVelocity = Vector3.zero;
         private Vector3 desiredPosition;
@@ -46,8 +75,13 @@ namespace TMPro.Examples
         //private float prev_ZoomDelta;
 
 
+<<<<<<< HEAD
+        private const string EVENT_SMOOTHING_VALUE = "Slider - Smoothing Value";
+        private const string EVENT_FOLLOW_DISTANCE = "Slider - Camera Zoom";
+=======
         private const string event_SmoothingValue = "Slider - Smoothing Value";
         private const string event_FollowDistance = "Slider - Camera Zoom";
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
         void Awake()
@@ -61,18 +95,30 @@ namespace TMPro.Examples
                 Input.simulateMouseWithTouches = false;
 
             cameraTransform = transform;
+<<<<<<< HEAD
+            previousSmoothing = movementSmoothing;
+=======
             previousSmoothing = MovementSmoothing;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
 
         // Use this for initialization
         void Start()
         {
+<<<<<<< HEAD
+            if (cameraTarget == null)
+            {
+                // If we don't have a target (assigned by the player, create a dummy in the center of the scene).
+                dummyTarget = new GameObject("Camera Target").transform;
+                cameraTarget = dummyTarget;
+=======
             if (CameraTarget == null)
             {
                 // If we don't have a target (assigned by the player, create a dummy in the center of the scene).
                 dummyTarget = new GameObject("Camera Target").transform;
                 CameraTarget = dummyTarget;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
             }
         }
 
@@ -83,6 +129,17 @@ namespace TMPro.Examples
 
 
             // Check if we still have a valid target
+<<<<<<< HEAD
+            if (cameraTarget != null)
+            {
+                if (cameraMode == CameraModes.Isometric)
+                {
+                    desiredPosition = cameraTarget.position + Quaternion.Euler(elevationAngle, orbitalAngle, 0f) * new Vector3(0, 0, -followDistance);
+                }
+                else if (cameraMode == CameraModes.Follow)
+                {
+                    desiredPosition = cameraTarget.position + cameraTarget.TransformDirection(Quaternion.Euler(elevationAngle, orbitalAngle, 0f) * (new Vector3(0, 0, -followDistance)));
+=======
             if (CameraTarget != null)
             {
                 if (CameraMode == CameraModes.Isometric)
@@ -92,16 +149,24 @@ namespace TMPro.Examples
                 else if (CameraMode == CameraModes.Follow)
                 {
                     desiredPosition = CameraTarget.position + CameraTarget.TransformDirection(Quaternion.Euler(ElevationAngle, OrbitalAngle, 0f) * (new Vector3(0, 0, -FollowDistance)));
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
                 else
                 {
                     // Free Camera implementation
                 }
 
+<<<<<<< HEAD
+                if (movementSmoothing == true)
+                {
+                    // Using Smoothing
+                    cameraTransform.position = Vector3.SmoothDamp(cameraTransform.position, desiredPosition, ref currentVelocity, movementSmoothingValue * Time.fixedDeltaTime);
+=======
                 if (MovementSmoothing == true)
                 {
                     // Using Smoothing
                     cameraTransform.position = Vector3.SmoothDamp(cameraTransform.position, desiredPosition, ref currentVelocity, MovementSmoothingValue * Time.fixedDeltaTime);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     //cameraTransform.position = Vector3.Lerp(cameraTransform.position, desiredPosition, Time.deltaTime * 5.0f);
                 }
                 else
@@ -110,11 +175,19 @@ namespace TMPro.Examples
                     cameraTransform.position = desiredPosition;
                 }
 
+<<<<<<< HEAD
+                if (rotationSmoothing == true)
+                    cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, Quaternion.LookRotation(cameraTarget.position - cameraTransform.position), rotationSmoothingValue * Time.deltaTime);
+                else
+                {
+                    cameraTransform.LookAt(cameraTarget);
+=======
                 if (RotationSmoothing == true)
                     cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, Quaternion.LookRotation(CameraTarget.position - cameraTransform.position), RotationSmoothingValue * Time.deltaTime);
                 else
                 {
                     cameraTransform.LookAt(CameraTarget);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
 
             }
@@ -137,6 +210,15 @@ namespace TMPro.Examples
                 mouseWheel *= 10;
 
                 if (Input.GetKeyDown(KeyCode.I))
+<<<<<<< HEAD
+                    cameraMode = CameraModes.Isometric;
+
+                if (Input.GetKeyDown(KeyCode.F))
+                    cameraMode = CameraModes.Follow;
+
+                if (Input.GetKeyDown(KeyCode.S))
+                    movementSmoothing = !movementSmoothing;
+=======
                     CameraMode = CameraModes.Isometric;
 
                 if (Input.GetKeyDown(KeyCode.F))
@@ -144,6 +226,7 @@ namespace TMPro.Examples
 
                 if (Input.GetKeyDown(KeyCode.S))
                     MovementSmoothing = !MovementSmoothing;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
                 // Check for right mouse button to change camera follow and elevation angle
@@ -154,18 +237,32 @@ namespace TMPro.Examples
 
                     if (mouseY > 0.01f || mouseY < -0.01f)
                     {
+<<<<<<< HEAD
+                        elevationAngle -= mouseY * moveSensitivity;
+                        // Limit Elevation angle between min & max values.
+                        elevationAngle = Mathf.Clamp(elevationAngle, minElevationAngle, maxElevationAngle);
+=======
                         ElevationAngle -= mouseY * MoveSensitivity;
                         // Limit Elevation angle between min & max values.
                         ElevationAngle = Mathf.Clamp(ElevationAngle, MinElevationAngle, MaxElevationAngle);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     }
 
                     if (mouseX > 0.01f || mouseX < -0.01f)
                     {
+<<<<<<< HEAD
+                        orbitalAngle += mouseX * moveSensitivity;
+                        if (orbitalAngle > 360)
+                            orbitalAngle -= 360;
+                        if (orbitalAngle < 0)
+                            orbitalAngle += 360;
+=======
                         OrbitalAngle += mouseX * MoveSensitivity;
                         if (OrbitalAngle > 360)
                             OrbitalAngle -= 360;
                         if (OrbitalAngle < 0)
                             OrbitalAngle += 360;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     }
                 }
 
@@ -177,20 +274,34 @@ namespace TMPro.Examples
                     // Handle elevation changes
                     if (deltaPosition.y > 0.01f || deltaPosition.y < -0.01f)
                     {
+<<<<<<< HEAD
+                        elevationAngle -= deltaPosition.y * 0.1f;
+                        // Limit Elevation angle between min & max values.
+                        elevationAngle = Mathf.Clamp(elevationAngle, minElevationAngle, maxElevationAngle);
+=======
                         ElevationAngle -= deltaPosition.y * 0.1f;
                         // Limit Elevation angle between min & max values.
                         ElevationAngle = Mathf.Clamp(ElevationAngle, MinElevationAngle, MaxElevationAngle);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     }
 
 
                     // Handle left & right 
                     if (deltaPosition.x > 0.01f || deltaPosition.x < -0.01f)
                     {
+<<<<<<< HEAD
+                        orbitalAngle += deltaPosition.x * 0.1f;
+                        if (orbitalAngle > 360)
+                            orbitalAngle -= 360;
+                        if (orbitalAngle < 0)
+                            orbitalAngle += 360;
+=======
                         OrbitalAngle += deltaPosition.x * 0.1f;
                         if (OrbitalAngle > 360)
                             OrbitalAngle -= 360;
                         if (OrbitalAngle < 0)
                             OrbitalAngle += 360;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     }
 
                 }
@@ -203,6 +314,18 @@ namespace TMPro.Examples
 
                     if (Physics.Raycast(ray, out hit, 300, 1 << 10 | 1 << 11 | 1 << 12 | 1 << 14))
                     {
+<<<<<<< HEAD
+                        if (hit.transform == cameraTarget)
+                        {
+                            // Reset Follow Position
+                            orbitalAngle = 0;
+                        }
+                        else
+                        {
+                            cameraTarget = hit.transform;
+                            orbitalAngle = 0;
+                            movementSmoothing = previousSmoothing;
+=======
                         if (hit.transform == CameraTarget)
                         {
                             // Reset Follow Position
@@ -213,6 +336,7 @@ namespace TMPro.Examples
                             CameraTarget = hit.transform;
                             OrbitalAngle = 0;
                             MovementSmoothing = previousSmoothing;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                         }
 
                     }
@@ -225,6 +349,22 @@ namespace TMPro.Examples
                     {
                         // We need a Dummy Target to anchor the Camera
                         dummyTarget = new GameObject("Camera Target").transform;
+<<<<<<< HEAD
+                        dummyTarget.position = cameraTarget.position;
+                        dummyTarget.rotation = cameraTarget.rotation;
+                        cameraTarget = dummyTarget;
+                        previousSmoothing = movementSmoothing;
+                        movementSmoothing = false;
+                    }
+                    else if (dummyTarget != cameraTarget)
+                    {
+                        // Move DummyTarget to CameraTarget
+                        dummyTarget.position = cameraTarget.position;
+                        dummyTarget.rotation = cameraTarget.rotation;
+                        cameraTarget = dummyTarget;
+                        previousSmoothing = movementSmoothing;
+                        movementSmoothing = false;
+=======
                         dummyTarget.position = CameraTarget.position;
                         dummyTarget.rotation = CameraTarget.rotation;
                         CameraTarget = dummyTarget;
@@ -239,6 +379,7 @@ namespace TMPro.Examples
                         CameraTarget = dummyTarget;
                         previousSmoothing = MovementSmoothing;
                         MovementSmoothing = false;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                     }
 
 
@@ -269,9 +410,15 @@ namespace TMPro.Examples
 
                 if (zoomDelta > 0.01f || zoomDelta < -0.01f)
                 {
+<<<<<<< HEAD
+                    followDistance += zoomDelta * 0.25f;
+                    // Limit FollowDistance between min & max values.
+                    followDistance = Mathf.Clamp(followDistance, minFollowDistance, maxFollowDistance);
+=======
                     FollowDistance += zoomDelta * 0.25f;
                     // Limit FollowDistance between min & max values.
                     FollowDistance = Mathf.Clamp(FollowDistance, MinFollowDistance, MaxFollowDistance);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
 
 
@@ -281,9 +428,15 @@ namespace TMPro.Examples
             if (mouseWheel < -0.01f || mouseWheel > 0.01f)
             {
 
+<<<<<<< HEAD
+                followDistance -= mouseWheel * 5.0f;
+                // Limit FollowDistance between min & max values.
+                followDistance = Mathf.Clamp(followDistance, minFollowDistance, maxFollowDistance);
+=======
                 FollowDistance -= mouseWheel * 5.0f;
                 // Limit FollowDistance between min & max values.
                 FollowDistance = Mathf.Clamp(FollowDistance, MinFollowDistance, MaxFollowDistance);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
             }
 
 

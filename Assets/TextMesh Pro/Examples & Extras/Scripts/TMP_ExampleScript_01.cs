@@ -2,11 +2,25 @@
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+<<<<<<< HEAD
+using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
 {
 
+<<<<<<< HEAD
+    public class TMPExampleScript01 : MonoBehaviour
+    {
+        public enum ObjectType { TextMeshPro = 0, TextMeshProUGUI = 1 };
+
+        [FormerlySerializedAs("ObjectType")] public ObjectType objectType;
+        public bool isStatic;
+
+        private TMP_Text mText;
+=======
     public class TMP_ExampleScript_01 : MonoBehaviour
     {
         public enum objectType { TextMeshPro = 0, TextMeshProUGUI = 1 };
@@ -15,17 +29,46 @@ namespace TMPro.Examples
         public bool isStatic;
 
         private TMP_Text m_text;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
         //private TMP_InputField m_inputfield;
 
 
+<<<<<<< HEAD
+        private const string K_LABEL = "The count is <#0080ff>{0}</color>";
+=======
         private const string k_label = "The count is <#0080ff>{0}</color>";
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         private int count;
 
         void Awake()
         {
             // Get a reference to the TMP text component if one already exists otherwise add one.
             // This example show the convenience of having both TMP components derive from TMP_Text. 
+<<<<<<< HEAD
+            if (objectType == 0)
+                mText = GetComponent<TextMeshPro>() ?? gameObject.AddComponent<TextMeshPro>();
+            else
+                mText = GetComponent<TextMeshProUGUI>() ?? gameObject.AddComponent<TextMeshProUGUI>();
+
+            // Load a new font asset and assign it to the text object.
+            mText.font = Resources.Load<TMP_FontAsset>("Fonts & Materials/Anton SDF");
+
+            // Load a new material preset which was created with the context menu duplicate.
+            mText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Anton SDF - Drop Shadow");
+
+            // Set the size of the font.
+            mText.fontSize = 120;
+
+            // Set the text
+            mText.text = "A <#0080ff>simple</color> line of text.";
+
+            // Get the preferred width and height based on the supplied width and height as opposed to the actual size of the current text container.
+            Vector2 size = mText.GetPreferredValues(Mathf.Infinity, Mathf.Infinity);
+
+            // Set the size of the RectTransform based on the new calculated values.
+            mText.rectTransform.sizeDelta = new Vector2(size.x, size.y);
+=======
             if (ObjectType == 0)
                 m_text = GetComponent<TextMeshPro>() ?? gameObject.AddComponent<TextMeshPro>();
             else
@@ -48,6 +91,7 @@ namespace TMPro.Examples
 
             // Set the size of the RectTransform based on the new calculated values.
             m_text.rectTransform.sizeDelta = new Vector2(size.x, size.y);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
 
@@ -55,7 +99,11 @@ namespace TMPro.Examples
         {
             if (!isStatic)
             {
+<<<<<<< HEAD
+                mText.SetText(K_LABEL, count % 1000);
+=======
                 m_text.SetText(k_label, count % 1000);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 count += 1;
             }
         }

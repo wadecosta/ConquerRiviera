@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
@@ -8,6 +12,15 @@ namespace TMPro.Examples
     public class Benchmark04 : MonoBehaviour
     {
 
+<<<<<<< HEAD
+        [FormerlySerializedAs("SpawnType")] public int spawnType = 0;
+
+        [FormerlySerializedAs("MinPointSize")] public int minPointSize = 12;
+        [FormerlySerializedAs("MaxPointSize")] public int maxPointSize = 64;
+        [FormerlySerializedAs("Steps")] public int steps = 4;
+
+        private Transform mTransform;
+=======
         public int SpawnType = 0;
 
         public int MinPointSize = 12;
@@ -15,28 +28,43 @@ namespace TMPro.Examples
         public int Steps = 4;
 
         private Transform m_Transform;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         //private TextMeshProFloatingText floatingText_Script;
         //public Material material;
 
 
         void Start()
         {
+<<<<<<< HEAD
+            mTransform = transform;
+=======
             m_Transform = transform;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
             float lineHeight = 0;
             float orthoSize = Camera.main.orthographicSize = Screen.height / 2;
             float ratio = (float)Screen.width / Screen.height;
 
+<<<<<<< HEAD
+            for (int i = minPointSize; i <= maxPointSize; i += steps)
+            {
+                if (spawnType == 0)
+=======
             for (int i = MinPointSize; i <= MaxPointSize; i += Steps)
             {
                 if (SpawnType == 0)
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 {
                     // TextMesh Pro Implementation
                     GameObject go = new GameObject("Text - " + i + " Pts");
 
                     if (lineHeight > orthoSize * 2) return;
 
+<<<<<<< HEAD
+                    go.transform.position = mTransform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
+=======
                     go.transform.position = m_Transform.position + new Vector3(ratio * -orthoSize * 0.975f, orthoSize * 0.975f - lineHeight, 0);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
                     TextMeshPro textMeshPro = go.AddComponent<TextMeshPro>();
 

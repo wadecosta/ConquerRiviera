@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+<<<<<<< HEAD
+using UnityEngine.Serialization;
+=======
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
 
 namespace TMPro.Examples
@@ -8,18 +12,31 @@ namespace TMPro.Examples
     public class VertexShakeA : MonoBehaviour
     {
 
+<<<<<<< HEAD
+        [FormerlySerializedAs("AngleMultiplier")] public float angleMultiplier = 1.0f;
+        [FormerlySerializedAs("SpeedMultiplier")] public float speedMultiplier = 1.0f;
+        [FormerlySerializedAs("ScaleMultiplier")] public float scaleMultiplier = 1.0f;
+        [FormerlySerializedAs("RotationMultiplier")] public float rotationMultiplier = 1.0f;
+
+        private TMP_Text mTextComponent;
+=======
         public float AngleMultiplier = 1.0f;
         public float SpeedMultiplier = 1.0f;
         public float ScaleMultiplier = 1.0f;
         public float RotationMultiplier = 1.0f;
 
         private TMP_Text m_TextComponent;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         private bool hasTextChanged;
 
 
         void Awake()
         {
+<<<<<<< HEAD
+            mTextComponent = GetComponent<TMP_Text>();
+=======
             m_TextComponent = GetComponent<TMP_Text>();
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
         }
 
         void OnEnable()
@@ -42,7 +59,11 @@ namespace TMPro.Examples
 
         void ON_TEXT_CHANGED(Object obj)
         {
+<<<<<<< HEAD
+            if (obj = mTextComponent)
+=======
             if (obj = m_TextComponent)
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 hasTextChanged = true;
         }
 
@@ -55,9 +76,15 @@ namespace TMPro.Examples
 
             // We force an update of the text object since it would only be updated at the end of the frame. Ie. before this code is executed on the first frame.
             // Alternatively, we could yield and wait until the end of the frame when the text object will be generated.
+<<<<<<< HEAD
+            mTextComponent.ForceMeshUpdate();
+
+            TMP_TextInfo textInfo = mTextComponent.textInfo;
+=======
             m_TextComponent.ForceMeshUpdate();
 
             TMP_TextInfo textInfo = m_TextComponent.textInfo;
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
             Matrix4x4 matrix;
             Vector3[][] copyOfVertices = new Vector3[0][];
@@ -101,7 +128,11 @@ namespace TMPro.Examples
 
                     // Determine the center of each line
                     Vector3 centerOfLine = (textInfo.characterInfo[first].bottomLeft + textInfo.characterInfo[last].topRight) / 2;
+<<<<<<< HEAD
+                    Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-0.25f, 0.25f) * rotationMultiplier);
+=======
                     Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(-0.25f, 0.25f) * RotationMultiplier);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
                     // Iterate through each character of the line.
                     for (int j = first; j <= last; j++)
@@ -127,7 +158,11 @@ namespace TMPro.Examples
                         copyOfVertices[materialIndex][vertexIndex + 3] = sourceVertices[vertexIndex + 3] - centerOfLine;
 
                         // Determine the random scale change for each character.
+<<<<<<< HEAD
+                        float randomScale = Random.Range(0.995f - 0.001f * scaleMultiplier, 1.005f + 0.001f * scaleMultiplier);
+=======
                         float randomScale = Random.Range(0.995f - 0.001f * ScaleMultiplier, 1.005f + 0.001f * ScaleMultiplier);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
 
                         // Setup the matrix rotation.
                         matrix = Matrix4x4.TRS(Vector3.one, rotation, Vector3.one * randomScale);
@@ -150,7 +185,11 @@ namespace TMPro.Examples
                 for (int i = 0; i < textInfo.meshInfo.Length; i++)
                 {
                     textInfo.meshInfo[i].mesh.vertices = copyOfVertices[i];
+<<<<<<< HEAD
+                    mTextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+=======
                     m_TextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
+>>>>>>> 79e2fe3a0a4ad8805a9270cec6cc78af4a4004dc
                 }
 
                 yield return new WaitForSeconds(0.1f);
